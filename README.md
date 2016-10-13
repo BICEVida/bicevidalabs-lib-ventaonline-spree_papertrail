@@ -1,5 +1,7 @@
+# bicevidalabs-lib-ventaonline-spree_papertrail
+
 SpreePapertrail
-===============
+
 
 Allows audit of customer orders shown at the time of purchase, keeping with historical changes in:
 
@@ -62,3 +64,5 @@ require 'spree_papertrail/factories'
 ```
 
 Copyright (c) 2014 [Acid Labs](http://acid.cl), released under the New BSD License
+
+
