@@ -59,7 +59,7 @@ RSpec.describe Spree::OrderVersion, :type => :model do
       end
 
       describe ":product_property_version_id" do
-        subject { FactoryGirl.build(:order_version) }
+        subject { FactoryBot.build(:order_version) }
 
         it { expect(subject).to respond_to :product_property_version_id }
 
@@ -75,7 +75,7 @@ RSpec.describe Spree::OrderVersion, :type => :model do
       end
 
       describe ":product_property" do
-        let(:product_property) { FactoryGirl.create(:product_property) }
+        let(:product_property) { FactoryBot.create(:product_property) }
 
         it { expect(subject).to respond_to :product_property }
 
@@ -93,7 +93,7 @@ RSpec.describe Spree::OrderVersion, :type => :model do
                                               product_property_version_id: version.id
                                             }]
                     }
-          order_version = FactoryGirl.build(:order_version, status: status)
+          order_version = FactoryBot.build(:order_version, status: status)
 
           expect(order_version.product_property(product_property_id: product_property.id).class).to eq(Spree::ProductProperty)
           expect(order_version.product_property(product_property_id: product_property.id)).to eq(version.reify)
@@ -132,7 +132,7 @@ RSpec.describe Spree::OrderVersion, :type => :model do
       end
 
       describe ":property_version_id" do
-        subject { FactoryGirl.build(:order_version) }
+        subject { FactoryBot.build(:order_version) }
 
         it { expect(subject).to respond_to :property_version_id }
 
@@ -148,7 +148,7 @@ RSpec.describe Spree::OrderVersion, :type => :model do
       end
 
       describe ":property" do
-        let(:property) { FactoryGirl.create(:property) }
+        let(:property) { FactoryBot.create(:property) }
 
         it { expect(subject).to respond_to :property }
 
@@ -166,7 +166,7 @@ RSpec.describe Spree::OrderVersion, :type => :model do
                                               product_property_version_id: 1
                                             }]
                     }
-          order_version = FactoryGirl.build(:order_version, status: status)
+          order_version = FactoryBot.build(:order_version, status: status)
 
           expect(order_version.property(property_id: property.id).class).to eq(Spree::Property)
           expect(order_version.property(property_id: property.id)).to eq(version.reify)

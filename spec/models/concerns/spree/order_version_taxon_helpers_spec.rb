@@ -54,7 +54,7 @@ RSpec.describe Spree::OrderVersion, :type => :model do
     end
 
     describe ":taxon_version_id" do
-      subject { FactoryGirl.build(:order_version) }
+      subject { FactoryBot.build(:order_version) }
 
       it { expect(subject).to respond_to :taxon_version_id }
 
@@ -70,7 +70,7 @@ RSpec.describe Spree::OrderVersion, :type => :model do
     end
 
     describe ":taxon" do
-      let(:taxon) { FactoryGirl.create(:taxon) }
+      let(:taxon) { FactoryBot.create(:taxon) }
 
       it { expect(subject).to respond_to :taxon }
 
@@ -81,7 +81,7 @@ RSpec.describe Spree::OrderVersion, :type => :model do
         status  = {
                     taxons: [{taxon_id: taxon.id, version_id: version.id}]
                   }
-        order_version = FactoryGirl.build(:order_version, status: status)
+        order_version = FactoryBot.build(:order_version, status: status)
 
         expect(order_version.taxon(taxon_id: taxon.id).class).to eq(Spree::Taxon)
         expect(order_version.taxon(taxon_id: taxon.id)).to eq(version.reify)

@@ -19,15 +19,15 @@ RSpec.describe Spree::OrderVersion, :type => :model do
   # validations #
   ###############
   it "has a valid factory" do
-    expect(FactoryGirl.build(:order_version)).to be_valid
+    expect(FactoryBot.build(:order_version)).to be_valid
   end
 
   it "has an invalid factory" do
-    expect(FactoryGirl.build(:invalid_order_version)).to_not be_valid
+    expect(FactoryBot.build(:invalid_order_version)).to_not be_valid
   end
 
   it "should require an :order" do
-    version = FactoryGirl.build(:order_version)
+    version = FactoryBot.build(:order_version)
     version.order = nil
 
     expect(version.order).to be_nil

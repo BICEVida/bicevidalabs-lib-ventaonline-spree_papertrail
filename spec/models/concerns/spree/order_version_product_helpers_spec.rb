@@ -50,7 +50,7 @@ RSpec.describe Spree::OrderVersion, :type => :model do
     end
 
     describe ":product_version_id" do
-      subject { FactoryGirl.build(:order_version) }
+      subject { FactoryBot.build(:order_version) }
 
       it { expect(subject).to respond_to :product_version_id }
 
@@ -66,7 +66,7 @@ RSpec.describe Spree::OrderVersion, :type => :model do
     end
 
     describe ":product" do
-      let(:product) { FactoryGirl.create(:product) }
+      let(:product) { FactoryBot.create(:product) }
 
       it { expect(subject).to respond_to :product }
 
@@ -77,7 +77,7 @@ RSpec.describe Spree::OrderVersion, :type => :model do
         status  = {
                     products: [{product_id: product.id, version_id: version.id}]
                   }
-        order_version = FactoryGirl.build(:order_version, status: status)
+        order_version = FactoryBot.build(:order_version, status: status)
 
         expect(order_version.product(product_id: product.id).class).to eq(Spree::Product)
         expect(order_version.product(product_id: product.id)).to eq(version.reify)

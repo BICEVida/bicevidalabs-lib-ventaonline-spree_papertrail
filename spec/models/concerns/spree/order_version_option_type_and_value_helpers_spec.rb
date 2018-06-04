@@ -59,7 +59,7 @@ RSpec.describe Spree::OrderVersion, :type => :model do
       end
 
       describe ":option_type_version_id" do
-        subject { FactoryGirl.build(:order_version) }
+        subject { FactoryBot.build(:order_version) }
 
         it { expect(subject).to respond_to :option_type_version_id }
 
@@ -75,7 +75,7 @@ RSpec.describe Spree::OrderVersion, :type => :model do
       end
 
       describe ":option_type" do
-        let(:option_type) { FactoryGirl.create(:option_type) }
+        let(:option_type) { FactoryBot.create(:option_type) }
 
         it { expect(subject).to respond_to :option_type }
 
@@ -94,7 +94,7 @@ RSpec.describe Spree::OrderVersion, :type => :model do
                                                   option_type_version_id: version.id
                                                 }]
                     }
-          order_version = FactoryGirl.build(:order_version, status: status)
+          order_version = FactoryBot.build(:order_version, status: status)
 
           expect(order_version.option_type(option_type_id: option_type.id).class).to eq(Spree::OptionType)
           expect(order_version.option_type(option_type_id: option_type.id)).to eq(version.reify)
@@ -133,7 +133,7 @@ RSpec.describe Spree::OrderVersion, :type => :model do
       end
 
       describe ":option_value_version_id" do
-        subject { FactoryGirl.build(:order_version) }
+        subject { FactoryBot.build(:order_version) }
 
         it { expect(subject).to respond_to :option_value_version_id }
 
@@ -149,7 +149,7 @@ RSpec.describe Spree::OrderVersion, :type => :model do
       end
 
       describe ":option_value" do
-        let(:option_value) { FactoryGirl.create(:option_value) }
+        let(:option_value) { FactoryBot.create(:option_value) }
 
         it { expect(subject).to respond_to :option_value }
 
@@ -168,7 +168,7 @@ RSpec.describe Spree::OrderVersion, :type => :model do
                                                   option_value_version_id: version.id
                                                 }]
                     }
-          order_version = FactoryGirl.build(:order_version, status: status)
+          order_version = FactoryBot.build(:order_version, status: status)
 
           expect(order_version.option_value(option_value_id: option_value.id).class).to eq(Spree::OptionValue)
           expect(order_version.option_value(option_value_id: option_value.id)).to eq(version.reify)
